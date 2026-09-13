@@ -36,18 +36,14 @@
             <span class="logo-code">MaiCode Studio</span>
           </a>
           <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
-          <li><a href="#planes" class="nav-link">Planes Web</a></li>
+          <li><a href="#planes" class="nav-link" onclick="togglePackageView('dev')">Planes Web</a></li>
           <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
-          <li><a href="#mantenimiento" class="nav-link">Mantenimiento</a></li>
+          <li><a href="#planes" class="nav-link" onclick="togglePackageView('maint')">Mantenimiento</a></li>
           <li><a href="#faq" class="nav-link">Preguntas</a></li>
         </ul>
       </nav>
 
       <div class="nav-actions">
-        <div class="badge badge-status">
-          <span class="pulse-dot"></span>
-          <span>Proyectos Activos</span>
-        </div>
         <button class="btn btn-primary btn-glow" onclick="selectPlan('custom')">
           <span>Cotizar Ahora</span>
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -256,10 +252,15 @@
           </p>
         </div>
 
-        <!-- Badge de Pago Único -->
+        <!-- Toggle Switcher (Opciones desde un principio) -->
         <div class="pricing-controls">
-          <div class="badge badge-purple" style="font-size: 0.9rem; padding: 0.5rem 1.2rem;">
-            <span>⚡ Paquetes de Desarrollo Web • Pago Único • Sin Mensualidades Forzosas</span>
+          <div class="toggle-container">
+            <button class="toggle-btn active" id="tabDev" onclick="togglePackageView('dev')">
+              Desarrollo Web (Pago Único)
+            </button>
+            <button class="toggle-btn" id="tabMaint" onclick="togglePackageView('maint')">
+              Mantenimiento & Soporte Opcional
+            </button>
           </div>
         </div>
 
@@ -415,124 +416,158 @@
 
         </div>
 
-        <!-- =================== GRID 2: MANTENIMIENTO OPCIONAL (Imagen 1) =================== -->
-        <div class="pricing-grid" id="maintPackagesGrid" style="display: none;">
-          
-          <!-- Mantenimiento 1 -->
-          <div class="plan-card">
-            <div class="plan-header">
-              <h3 class="plan-name">Mantenimiento Presencia Digital</h3>
-              <div class="plan-price-wrap">
-                <span class="plan-currency">$</span>
-                <span class="plan-price">12</span>
-              </div>
-              <div class="plan-frequency">Servicio Mensual u Opcional Puntual</div>
-              <p class="plan-desc">Acompañamiento técnico para cambios menores y soporte básico.</p>
+        <!-- =================== VISTA 2: TABLA DE MANTENIMIENTO OPCIONAL (Exacta a la imagen) =================== -->
+        <div id="maintPackagesTableWrap" style="display: none;">
+          <!-- Garantía y Filosofía de Propiedad -->
+          <div class="guarantee-banner" style="margin-bottom: 2rem;">
+            <div class="guarantee-icon">
+              <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
             </div>
-
-            <ul class="plan-features-list">
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Corrección de fallas o problemas menores en la página.</span>
-              </li>
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Ajuste de cambios menores de texto, horarios, dirección o teléfono.</span>
-              </li>
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Reemplazo o ajuste de <strong>hasta 6 servicios o productos</strong> al mes.</span>
-              </li>
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Cambio o reemplazo de <strong>hasta 3 imágenes</strong> (banners, fotos de sección o galería).</span>
-              </li>
-            </ul>
-
-            <div class="plan-actions">
-              <button class="btn btn-primary" onclick="selectPlan('maint-presencia')">
-                <span>Contratar Soporte $12</span>
-              </button>
+            <div class="guarantee-text">
+              <h3>Tu sitio web es tuyo desde el primer día</h3>
+              <p>
+                No requiere suscripciones obligatorias para seguir activo. Nuestra sección de servicios adicionales y mantenimiento está diseñada únicamente como un apoyo opcional para cuando quieras renovar tu inventario, ajustar contenido o delegar la gestión técnica con total tranquilidad.
+              </p>
             </div>
           </div>
 
-          <!-- Mantenimiento 2 -->
-          <div class="plan-card featured">
-            <div class="plan-badge-top">Recomendado para Catálogos</div>
-            <div class="plan-header">
-              <h3 class="plan-name">Mantenimiento Catálogo Pro</h3>
-              <div class="plan-price-wrap">
-                <span class="plan-currency">$</span>
-                <span class="plan-price">20</span>
-              </div>
-              <div class="plan-frequency">Servicio Mensual u Opcional Puntual</div>
-              <p class="plan-desc">Ideal para negocios con rotación mensual de inventario y promociones.</p>
-            </div>
+          <!-- Tabla con el diseño idéntico a la imagen subida por el usuario -->
+          <div class="table-image-container">
+            <table class="table-image-style">
+              <thead>
+                <tr>
+                  <th class="col-head-empty"></th>
+                  <th class="col-head-plan">Página Básica</th>
+                  <th class="col-head-plan">Página Premium</th>
+                  <th class="col-head-plan">Tienda Online</th>
+                </tr>
+              </thead>
+              <tbody>
+                <!-- Fila 1: Precio mensual -->
+                <tr>
+                  <td class="row-label">Precio mensual</td>
+                  <td class="price-cell">$12</td>
+                  <td class="price-cell">$14</td>
+                  <td class="price-cell">$30</td>
+                </tr>
 
-            <ul class="plan-features-list">
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Corrección de fallas o problemas menores en la página.</span>
-              </li>
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Ajuste de cambios de información comercial o textos promocionales.</span>
-              </li>
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Carga, edición o reemplazo de <strong>hasta 10 productos</strong> al mes.</span>
-              </li>
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Cambio o reemplazo de <strong>hasta 5 imágenes</strong> (banners promocionales o fotos clave).</span>
-              </li>
-            </ul>
+                <!-- Fila 2: Precio anual (-2 meses) -->
+                <tr>
+                  <td class="row-label">Precio anual (-2 meses)</td>
+                  <td class="price-cell">$120</td>
+                  <td class="price-cell">$140</td>
+                  <td class="price-cell">$300</td>
+                </tr>
 
-            <div class="plan-actions">
-              <button class="btn btn-primary" onclick="selectPlan('maint-catalogo')">
-                <span>Contratar Soporte $20</span>
-              </button>
-            </div>
+                <!-- Fila 3: Incluye -->
+                <tr class="row-features-content">
+                  <td class="row-label row-label-top">Incluye</td>
+                  <td class="features-cell">
+                    <ul class="image-features-list">
+                      <li><span class="cyan-check">✓</span> <span>Registro del dominio y configuración</span></li>
+                      <li><span class="cyan-check">✓</span> <span>Soporte por WhatsApp 365 días del año</span></li>
+                      <li><span class="cyan-check">✓</span> <span>Actualizaciones de texto e imágenes</span></li>
+                      <li><span class="cyan-check">✓</span> <span>Hasta 2 cambios por mes</span></li>
+                    </ul>
+                  </td>
+                  <td class="features-cell">
+                    <ul class="image-features-list">
+                      <li><span class="cyan-check">✓</span> <span>Registro del dominio y configuración</span></li>
+                      <li><span class="cyan-check">✓</span> <span>Soporte por WhatsApp 365 días del año</span></li>
+                      <li><span class="cyan-check">✓</span> <span>Actualizaciones de texto e imágenes</span></li>
+                      <li><span class="cyan-check">✓</span> <span>Hasta 4 cambios por mes</span></li>
+                    </ul>
+                  </td>
+                  <td class="features-cell">
+                    <ul class="image-features-list">
+                      <li><span class="cyan-check">✓</span> <span>Registro del dominio y configuración</span></li>
+                      <li><span class="cyan-check">✓</span> <span>Soporte por WhatsApp 365 días del año</span></li>
+                      <li><span class="cyan-check">✓</span> <span>Actualizaciones de texto e imágenes</span></li>
+                      <li><span class="cyan-check">✓</span> <span>Hasta 8 cambios por mes</span></li>
+                    </ul>
+                  </td>
+                </tr>
+
+                <!-- Fila 4: Acciones para que se pueda acceder a contratar -->
+                <tr class="row-actions-buttons">
+                  <td class="row-label">Contratar</td>
+                  <td>
+                    <div class="table-action-btns">
+                      <button class="btn btn-whatsapp-action btn-sm" onclick="selectMaintImagePlan('Página Básica', 'Mensual ($12/mes)')">
+                        <span>Mensual $12</span>
+                      </button>
+                      <button class="btn btn-primary btn-sm" onclick="selectMaintImagePlan('Página Básica', 'Anual ($120/año - 2 meses gratis)')">
+                        <span>Anual $120</span>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-action-btns">
+                      <button class="btn btn-whatsapp-action btn-sm" onclick="selectMaintImagePlan('Página Premium', 'Mensual ($14/mes)')">
+                        <span>Mensual $14</span>
+                      </button>
+                      <button class="btn btn-primary btn-sm" onclick="selectMaintImagePlan('Página Premium', 'Anual ($140/año - 2 meses gratis)')">
+                        <span>Anual $140</span>
+                      </button>
+                    </div>
+                  </td>
+                  <td>
+                    <div class="table-action-btns">
+                      <button class="btn btn-whatsapp-action btn-sm" onclick="selectMaintImagePlan('Tienda Online', 'Mensual ($30/mes)')">
+                        <span>Mensual $30</span>
+                      </button>
+                      <button class="btn btn-primary btn-sm" onclick="selectMaintImagePlan('Tienda Online', 'Anual ($300/año - 2 meses gratis)')">
+                        <span>Anual $300</span>
+                      </button>
+                    </div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
 
-          <!-- Mantenimiento 3 -->
-          <div class="plan-card">
-            <div class="plan-header">
-              <h3 class="plan-name">Mantenimiento Tienda Autogestionable</h3>
-              <div class="plan-price-wrap">
-                <span class="plan-currency">$</span>
-                <span class="plan-price">35</span>
+          <!-- Barra de Extras y Ajustes Puntuales (Imagen 1 inferior) -->
+          <div class="extras-bar" style="margin-top: 2.5rem;">
+            <div class="extras-col">
+              <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.5rem;">Ajustes Puntuales y Servicios Extras</h3>
+              
+              <div class="extra-item">
+                <div class="extra-item-icon">⚡</div>
+                <div class="extra-item-content">
+                  <h4>Modificación de Producto Individual — <span class="neon-purple-text">  $2 c/u</span></h4>
+                  <p>Carga, edición o reemplazo puntual de fotografía, precio o información de un producto específico.</p>
+                </div>
               </div>
-              <div class="plan-frequency">Servicio Mensual u Opcional Puntual</div>
-              <p class="plan-desc">Gestión técnica delegada para comercios de alto flujo que prefieren tercerizar.</p>
+
+              <div class="extra-item">
+                <div class="extra-item-icon">📦</div>
+                <div class="extra-item-content">
+                  <h4>Promoción Bloque Estándar (20 Productos) — <span class="neon-purple-text">$30</span></h4>
+                  <p>Paquete ahorro para cargas o actualizaciones masivas de mercancía o inventario.</p>
+                </div>
+              </div>
             </div>
 
-            <ul class="plan-features-list">
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Corrección de fallas, revisión de estabilidad del panel privado y monitoreo de enlaces.</span>
-              </li>
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Monitoreo de Google Analytics 4 y revisión periódica de métricas de ventas.</span>
-              </li>
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Carga, edición o reemplazo delegado de <strong>hasta 20 productos</strong> al mes.</span>
-              </li>
-              <li class="plan-feature-item">
-                <span class="feature-check">✓</span>
-                <span>Cambio o reemplazo de <strong>hasta 8 imágenes generales</strong> o banners publicitarios.</span>
-              </li>
-            </ul>
+            <div class="extras-col">
+              <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.5rem;">Identidad de Marca & Dominio</h3>
+              
+              <div class="extra-item">
+                <div class="extra-item-icon">🌐</div>
+                <div class="extra-item-content">
+                  <h4>Dominio Web Personalizado — <span class="neon-purple-text">$20 / año</span></h4>
+                  <p>Registro y configuración de tu dirección exclusiva (.com o .com.ve). <em>(Incluido gratis el 1er año en el Plan Tienda Autogestionable)</em>.</p>
+                </div>
+              </div>
 
-            <div class="plan-actions">
-              <button class="btn btn-primary" onclick="selectPlan('maint-tienda')">
-                <span>Contratar Soporte $35</span>
-              </button>
+              <div class="extra-item">
+                <div class="extra-item-icon">🛠️</div>
+                <div class="extra-item-content">
+                  <h4>Desarrollos Estructurales a Medida</h4>
+                  <p>Nuevas secciones, módulos personalizados, integraciones especiales o rediseños se cotizan por separado según requerimientos.</p>
+                </div>
+              </div>
             </div>
           </div>
-
         </div>
 
       </div>
@@ -800,69 +835,7 @@
       </div>
     </section>
 
-    <!-- ==========================================
-         SERVICIOS ADICIONALES Y EXTRAS (Imagen 1)
-         ========================================== -->
-    <section class="maintenance-section" id="mantenimiento">
-      <div class="container">
-        <!-- Garantía y Filosofía de Propiedad (Cita textual Imagen 1) -->
-        <div class="guarantee-banner">
-          <div class="guarantee-icon">
-            <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-          </div>
-          <div class="guarantee-text">
-            <h3>Tu sitio web es tuyo desde el primer día</h3>
-            <p>
-              No requiere suscripciones obligatorias para seguir activo. Nuestra sección de servicios adicionales y mantenimiento está diseñada únicamente como un apoyo opcional para cuando quieras renovar tu inventario, ajustar contenido o delegar la gestión técnica con total tranquilidad.
-            </p>
-          </div>
-        </div>
 
-        <!-- Barra de Extras y Ajustes Puntuales (Imagen 1 inferior) -->
-        <div class="extras-bar">
-          <div class="extras-col">
-            <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.5rem;">Ajustes Puntuales y Servicios Extras</h3>
-            
-            <div class="extra-item">
-              <div class="extra-item-icon">⚡</div>
-              <div class="extra-item-content">
-                <h4>Modificación de Producto Individual — <span class="neon-purple-text">  $2 c/u</span></h4>
-                <p>Carga, edición o reemplazo puntual de fotografía, precio o información de un producto específico.</p>
-              </div>
-            </div>
-
-            <div class="extra-item">
-              <div class="extra-item-icon">📦</div>
-              <div class="extra-item-content">
-                <h4>Promoción Bloque Estándar (20 Productos) — <span class="neon-purple-text">$30</span></h4>
-                <p>Paquete ahorro para cargas o actualizaciones masivas de mercancía o inventario.</p>
-              </div>
-            </div>
-          </div>
-
-          <div class="extras-col">
-            <h3 style="font-size: 1.25rem; color: #ffffff; margin-bottom: 0.5rem;">Identidad de Marca & Dominio</h3>
-            
-            <div class="extra-item">
-              <div class="extra-item-icon">🌐</div>
-              <div class="extra-item-content">
-                <h4>Dominio Web Personalizado — <span class="neon-purple-text">$20 / año</span></h4>
-                <p>Registro y configuración de tu dirección exclusiva (.com o .com.ve). <em>(Incluido gratis el 1er año en el Plan Tienda Autogestionable)</em>.</p>
-              </div>
-            </div>
-
-            <div class="extra-item">
-              <div class="extra-item-icon">🛠️</div>
-              <div class="extra-item-content">
-                <h4>Desarrollos Estructurales a Medida</h4>
-                <p>Nuevas secciones, módulos personalizados, integraciones especiales o rediseños se cotizan por separado según requerimientos.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </section>
 
     <!-- ==========================================
          PREGUNTAS FRECUENTES (FAQ)
@@ -949,14 +922,11 @@
             Especialistas en desarrollo web premium, tiendas de alta velocidad y catálogos inteligentes con integración a WhatsApp.
           </p>
           <div class="footer-social-row">
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-icon-link" title="Instagram">
+            <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="social-icon-link" title="Instagram">
               <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
             </a>
-            <a href="https://t.me" target="_blank" rel="noopener" class="social-icon-link" title="Telegram">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg>
-            </a>
-            <a href="https://tiktok.com" target="_blank" rel="noopener" class="social-icon-link" title="TikTok">
-              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5"/></svg>
+            <a href="mailto:maivetpereira@gmail.com" class="social-icon-link" title="Correo Electrónico">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
             </a>
           </div>
         </div>
@@ -964,21 +934,28 @@
         <div class="footer-col">
           <h4>Planes Web</h4>
           <ul class="footer-links">
-            <li><a href="#planes" onclick="togglePackageView('dev')">Plan Presencia Digital</a></li>
-            <li><a href="#planes" onclick="togglePackageView('dev')">Plan Catálogo Pro</a></li>
-            <li><a href="#planes" onclick="togglePackageView('dev')">Plan Tienda Autogestionable</a></li>
-            <li><a href="#planes" onclick="togglePackageView('maint')">Servicios de Mantenimiento</a></li>
+            <li><a href="#planes">Plan Presencia Digital</a></li>
+            <li><a href="#planes">Plan Catálogo Pro</a></li>
+            <li><a href="#planes">Plan Tienda Autogestionable</a></li>
+            <li><a href="#planes" onclick="togglePackageView('maint')">Planes de Mantenimiento</a></li>
           </ul>
         </div>
 
         <div class="footer-col">
-          <h4>Contacto Rápido</h4>
-          <ul class="footer-links">
-            <li><a href="javascript:void(0)" onclick="selectPlan('custom')">💬 Chat WhatsApp Directo</a></li>
-            <li><a href="#portafolio">📁 Portafolio & Demos</a></li>
-            <li><a href="#faq">❓ Preguntas Frecuentes</a></li>
-            <li><a href="#beneficios">⚡ Especificaciones Técnicas</a></li>
-            <li><span style="color: var(--accent-emerald);">● Estado: Disponible para Proyectos</span></li>
+          <h4>Contacto</h4>
+          <ul class="footer-links footer-contact-list">
+            <li>
+              <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="contact-link-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                <span>Instagram: @maicodestudio</span>
+              </a>
+            </li>
+            <li>
+              <a href="mailto:maivetpereira@gmail.com" class="contact-link-item">
+                <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+                <span>Correo: maivetpereira@gmail.com</span>
+              </a>
+            </li>
           </ul>
         </div>
       </div>

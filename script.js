@@ -9,7 +9,7 @@
 // ==========================================
 const CONFIG = {
   // Ingresa aquí tu número de WhatsApp sin signos (+) ni espacios. Ejemplo: '584121234567'
-  whatsappNumber: '584120000000', 
+  whatsappNumber: '584128672906', 
   agencyName: 'MaiCode Studio',
   defaultExchangeRate: 36.50 // Tasa referencial Bs/USD
 };
@@ -277,24 +277,63 @@ function filterPortfolio(category) {
 }
 
 // ==========================================
-// 6. TOGGLE ENTRE DESARROLLO Y MANTENIMIENTO
+// 6. GESTIÓN DE LA TABLA DE MANTENIMIENTO Y PROMOCIONES ANUALES
 // ==========================================
-function togglePackageView(viewType) {
-  const btnDev = document.getElementById('tabDev');
-  const btnMaint = document.getElementById('tabMaint');
-  const devGrid = document.getElementById('devPackagesGrid');
-  const maintGrid = document.getElementById('maintPackagesGrid');
+let currentMaintPeriod = 'monthly';
 
-  if (viewType === 'dev') {
-    btnDev.classList.add('active');
-    btnMaint.classList.remove('active');
-    devGrid.style.display = 'grid';
-    maintGrid.style.display = 'none';
+function setMaintPeriod(period) {
+  currentMaintPeriod = period;
+  const btnMonthly = document.getElementById('maintBtnMonthly');
+  const btnAnnual = document.getElementById('maintBtnAnnual');
+
+  if (period === 'annual') {
+    if (btnAnnual) btnAnnual.classList.add('active');
+    if (btnMonthly) btnMonthly.classList.remove('active');
+    document.querySelectorAll('.maint-price-monthly').forEach(el => el.style.display = 'none');
+    document.querySelectorAll('.maint-price-annual').forEach(el => el.style.display = 'block');
   } else {
-    btnMaint.classList.add('active');
-    btnDev.classList.remove('active');
-    devGrid.style.display = 'none';
-    maintGrid.style.display = 'grid';
+    if (btnMonthly) btnMonthly.classList.add('active');
+    if (btnAnnual) btnAnnual.classList.remove('active');
+    document.querySelectorAll('.maint-price-monthly').forEach(el => el.style.display = 'block');
+    document.querySelectorAll('.maint-price-annual').forEach(el => el.style.display = 'none');
+  }
+}
+
+function selectMaintPlan(planType) {
+  const plans = {
+    presencia: {
+      name: 'Mantenimiento Presencia Digital',
+      monthly: '$12/mes',
+      annual: '$120/año (Promoción 2 Meses Gratis)'
+    },
+    catalogo: {
+      name: 'Mantenimiento Catálogo Pro',
+      monthly: '$20/mes',
+      annual: '$190/año (Promoción Anual con Ahorro de $50)'
+    },
+    tienda: {
+      name: 'Mantenimiento Tienda Autogestionable',
+      monthly: '$35/mes',
+      annual: '$330/año (Promoción Anual VIP con Ahorro de $90)'
+    }
+  };
+
+  const selected = plans[planType] || plans.presencia;
+  const periodText = currentMaintPeriod === 'annual'
+    ? `Modalidad Anual con Descuento (${selected.annual})`
+    : `Modalidad Mensual (${selected.monthly})`;
+
+  const message = `¡Hola ${CONFIG.agencyName}! 👋 Deseo contratar el servicio de *${selected.name}* bajo la *${periodText}*. ¿Cuáles son los pasos a seguir?`;
+  openWhatsApp(message);
+}
+
+function togglePackageView(viewType) {
+  if (viewType === 'maint') {
+    const el = document.getElementById('mantenimiento');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
+  } else {
+    const el = document.getElementById('planes');
+    if (el) el.scrollIntoView({ behavior: 'smooth' });
   }
 }
 
