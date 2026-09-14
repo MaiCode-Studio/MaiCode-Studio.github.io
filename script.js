@@ -328,10 +328,18 @@ function selectMaintPlan(planType) {
 }
 
 function togglePackageView(viewType) {
+  const maintWrap = document.getElementById('maintPackagesTableWrap');
+
   if (viewType === 'maint') {
-    const el = document.getElementById('mantenimiento');
+    // Muestra el contenedor oculto con la tabla
+    if (maintWrap) maintWrap.style.display = 'block';
+
+    const el = document.getElementById('mantenimiento') || maintWrap;
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   } else {
+    // Si cambian a otra vista, vuelve a ocultar la tabla
+    if (maintWrap) maintWrap.style.display = 'none';
+
     const el = document.getElementById('planes');
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   }

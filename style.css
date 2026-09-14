@@ -2043,3 +2043,127 @@ h1, h2, h3, h4 {
   }
 }
 
+/* Contenedor principal (Fondo morado muy oscuro) */
+.tabla-precios {
+  background-color: #0b0319; 
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  border-collapse: collapse;
+  color: #ffffff;
+}
+
+/* Bordes internos sutiles */
+.tabla-precios th, 
+.tabla-precios td {
+  border: 1px solid rgba(209, 84, 255, 0.15); /* Borde con tinte morado */
+  padding: 24px;
+}
+
+.tabla-precios th:not(:first-child),
+.tabla-precios td:not(:first-child) {
+  text-align: center;
+}
+
+/* Morado brillante para etiquetas y precios (Reemplaza el cian) */
+.columna-etiqueta, .precio-destacado {
+  color: #d154ff; 
+}
+
+.precio-destacado {
+  font-size: 2.2rem;
+  font-weight: bold;
+}
+
+.lista-incluye {
+  list-style: none;
+  padding: 0;
+  text-align: left;
+  font-size: 0.9rem;
+  color: #d8cce6; /* Blanco con ligero tono morado para lectura */
+}
+
+.lista-incluye li {
+  margin-bottom: 12px;
+  display: flex;
+  gap: 8px;
+}
+
+/* Contenedor Flexbox para alinear las tarjetas lado a lado */
+.servicios-extras {
+  display: flex;
+  justify-content: center;
+  align-items: stretch; /* Hace que ambas tarjetas tengan la misma altura */
+  gap: 30px;
+  max-width: 900px;
+  margin: 50px auto 30px;
+}
+
+/* Diseño de la Tarjeta */
+.tarjeta-extra {
+  flex: 1;
+  background-color: #15062e; /* Mismo tono de fondo que la tabla principal */
+  border: 1px solid rgba(209, 84, 255, 0.2);
+  border-radius: 16px;
+  padding: 30px 24px;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.tarjeta-extra:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(209, 84, 255, 0.15);
+  border-color: rgba(209, 84, 255, 0.4);
+}
+
+/* Textos de la tarjeta */
+.extra-titulo {
+  color: #d154ff; /* Morado brillante */
+  font-size: 1.2rem;
+  margin: 0 0 16px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.tarjeta-extra p {
+  color: #d8cce6;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin: 10px 0;
+}
+
+/* Detalles adicionales dentro de la tarjeta */
+.texto-resaltado {
+  font-style: italic;
+  font-size: 0.85rem !important;
+  opacity: 0.7;
+  margin-top: 15px !important;
+}
+
+.etiqueta-precio {
+  display: inline-block;
+  margin-top: 15px;
+  padding: 8px 16px;
+  background: rgba(209, 84, 255, 0.1);
+  border: 1px solid rgba(209, 84, 255, 0.3);
+  border-radius: 8px;
+  color: #e0d5ee;
+  font-size: 0.9rem;
+}
+
+.etiqueta-precio strong {
+  color: #d154ff;
+  font-size: 1.1rem;
+  margin-left: 6px;
+}
+
+/* Responsividad: Apilar tarjetas en pantallas pequeñas (móviles) */
+@media (max-width: 768px) {
+  .servicios-extras {
+    flex-direction: column;
+    gap: 20px;
+    padding: 0 10px;
+  }
+}
+
