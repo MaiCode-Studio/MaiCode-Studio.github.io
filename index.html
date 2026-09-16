@@ -29,13 +29,12 @@
        ========================================== -->
   <header class="site-header">
     <div class="container nav-container">
+        <span class="logo-code">MaiCode Studio</span>
+      </a>
 
       <nav>
         
         <ul class="nav-menu" id="navMenu">
-          <a href="#" class="logo">
-            <span class="logo-code">MaiCode Studio</span>
-          </a>
           <li><a href="#beneficios" class="nav-link">Beneficios</a></li>
           <li><a href="#planes" class="nav-link" onclick="togglePackageView('dev')">Planes Web</a></li>
           <li><a href="#portafolio" class="nav-link">Portafolio</a></li>
@@ -45,10 +44,6 @@
       </nav>
 
       <div class="nav-actions">
-        <button class="btn btn-primary btn-glow" onclick="selectPlan('custom')">
-          <span>Cotizar Ahora</span>
-          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
         <button class="nav-toggle" id="navToggle" aria-label="Abrir menú de navegación">
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
         </button>
@@ -405,67 +400,64 @@
 
         </div>
 
-        <!-- =================== VISTA 2: TABLA DE MANTENIMIENTO OPCIONAL (Exacta a la imagen) =================== -->
-  <section class="pricing-section" id="planes">
+        <!-- =================== MANTENIMIENTO =================== -->
+  <section class="pricing-section maintenance-plans-section" id="mantenimiento">
     <div class="container">
       <div class="section-header">
         <div class="badge badge-purple section-tag">Soporte y Mantenimiento Web</div>
-        <h2 class="section-title">Servicios Adicionales</h2>
+        <h2 class="section-title">Mantén Tu Sitio Siempre Actualizado</h2>
         <p class="section-desc">
-          Esta sección de servicios adicionales y mantenimiento está diseñada únicamente como un apoyo opcional para cuando quieras renovar tu inventario, ajustar contenido o delegar la gestión técnica con total tranquilidad.
+          Elige el nivel de soporte que acompaña el ritmo de tu negocio. Actualizaciones claras, atención directa y sin pagos innecesarios.
         </p>
-    </div> 
+      </div>
 
-  <table class="tabla-precios">
-    <thead>
-      <tr>
-        <th></th>
-        <th>PLAN PRESENCIA DIGITAL</th>
-        <th>PLAN CATÁLOGO PRO</th>
-        <th>PLAN TIENDA AUTOGESTIONABLE</th>
-      </tr>
-    </thead>
-    <tbody>
-      <!-- Fila de Precios -->
-      <tr>
-        <td class="columna-etiqueta">Inversión Mensual</td>
-        <td class="precio-destacado">$12</td>
-        <td class="precio-destacado">$20</td>
-        <td class="precio-destacado">$35</td>
-      </tr>
-      
-      <!-- Fila de Características -->
-      <tr>
-        <td class="columna-etiqueta">Incluye</td>
-        <td>
-          <ul class="lista-incluye">
-            <li><span>•</span> Corrección de fallas o problemas menores en la página.</li>
-            <li><span>•</span> Ajuste de cambios menores de texto, horarios, dirección o teléfono.</li>
-            <li><span>•</span> Reemplazo o ajuste de hasta 6 servicios/ productos al mes.</li>
-            <li><span>•</span> Cambio o reemplazo de hasta 3 imágenes (banners, fotos de sección o galería).</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="lista-incluye">
-            <li><span>•</span> Corrección de fallas o problemas menores en la página.</li>
-            <li><span>•</span> Ajuste de cambios de información comercial o textos promocionales.</li>
-            <li><span>•</span> Carga, edición o reemplazo de hasta 10 productos al mes.</li>
-            <li><span>•</span> Cambio o reemplazo de hasta 5 imágenes (banners promocionales o fotos clave).</li>
-          </ul>
-        </td>
-        <td>
-          <ul class="lista-incluye">
-            <li><span>•</span> Corrección de fallas, revisión de estabilidad del panel privado y monitoreo de enlaces.</li>
-            <li><span>•</span> Monitoreo de Google Analytics 4 y revisión de métricas.</li>
-            <li><span>•</span> Carga, edición o reemplazo delegado de hasta 20 productos al mes (por si el cliente no quiere cargarlos él mismo en el panel).</li>
-            <li><span>•</span> Cambio o reemplazo de hasta 8 imágenes generales o banners publicitarios.</li>
-          </ul>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-  
-</div>
+      <div class="maint-billing-wrapper">
+        <div class="maint-billing-switch" role="group" aria-label="Modalidad de mantenimiento">
+          <button class="maint-switch-btn active" id="maintBtnMonthly" type="button" onclick="setMaintPeriod('monthly')">Mensual</button>
+          <button class="maint-switch-btn" id="maintBtnAnnual" type="button" onclick="setMaintPeriod('annual')">Anual <span class="annual-promo-pill">Ahorra 2 meses</span></button>
+        </div>
+      </div>
+
+      <div class="maintenance-cards" id="maintPackagesTableWrap">
+        <article class="maintenance-card">
+          <header class="maintenance-card-header">
+            <h3>Presencia Digital</h3><p>Para mantener tu información comercial al día.</p>
+            <div class="maintenance-price maint-price-monthly"><span>$</span>12<small>/ mes</small></div>
+            <div class="maintenance-price maint-price-annual" style="display: none;"><span>$</span>120<small>/ año</small></div>
+            <p class="maintenance-saving maint-price-annual" style="display: none;">2 meses sin costo</p>
+          </header>
+          <div class="maintenance-metrics"><span><strong>6</strong> servicios</span><span><strong>3</strong> imágenes</span></div>
+          <details class="maintenance-details"><summary>Ver qué incluye</summary><ul><li>Corrección de fallas o problemas menores.</li><li>Cambios de textos, horarios, dirección o teléfono.</li><li>Ajuste de hasta 6 servicios o productos al mes.</li><li>Cambio de hasta 3 imágenes de la página.</li></ul></details>
+          <button class="btn btn-whatsapp-action btn-maint-action" type="button" onclick="selectMaintPlan('presencia')">Contratar mantenimiento</button>
+        </article>
+
+        <article class="maintenance-card featured-maintenance">
+          <span class="maintenance-card-badge">Más elegido</span>
+          <header class="maintenance-card-header">
+            <h3>Catálogo Pro</h3><p>Para catálogos que cambian con frecuencia.</p>
+            <div class="maintenance-price maint-price-monthly"><span>$</span>20<small>/ mes</small></div>
+            <div class="maintenance-price maint-price-annual" style="display: none;"><span>$</span>190<small>/ año</small></div>
+            <p class="maintenance-saving maint-price-annual" style="display: none;">Ahorra $50 al año</p>
+          </header>
+          <div class="maintenance-metrics"><span><strong>10</strong> productos</span><span><strong>5</strong> imágenes</span></div>
+          <details class="maintenance-details"><summary>Ver qué incluye</summary><ul><li>Corrección de fallas o problemas menores.</li><li>Actualización de información y textos promocionales.</li><li>Carga, edición o reemplazo de hasta 10 productos.</li><li>Cambio de hasta 5 imágenes promocionales o clave.</li></ul></details>
+          <button class="btn btn-whatsapp-action btn-maint-action" type="button" onclick="selectMaintPlan('catalogo')">Contratar mantenimiento</button>
+        </article>
+
+        <article class="maintenance-card">
+          <header class="maintenance-card-header">
+            <h3>Tienda Autogestionable</h3><p>Para operación, inventario y analítica constantes.</p>
+            <div class="maintenance-price maint-price-monthly"><span>$</span>35<small>/ mes</small></div>
+            <div class="maintenance-price maint-price-annual" style="display: none;"><span>$</span>330<small>/ año</small></div>
+            <p class="maintenance-saving maint-price-annual" style="display: none;">Ahorra $90 al año</p>
+          </header>
+          <div class="maintenance-metrics"><span><strong>20</strong> productos</span><span><strong>8</strong> imágenes</span></div>
+          <details class="maintenance-details"><summary>Ver qué incluye</summary><ul><li>Correcciones, estabilidad del panel y enlaces.</li><li>Revisión de métricas de Google Analytics 4.</li><li>Carga, edición o reemplazo de hasta 20 productos.</li><li>Cambio de hasta 8 imágenes o banners generales.</li></ul></details>
+          <button class="btn btn-whatsapp-action btn-maint-action" type="button" onclick="selectMaintPlan('tienda')">Contratar mantenimiento</button>
+        </article>
+      </div>
+      <p class="maintenance-scope-note">Los cambios estructurales, nuevas secciones o integraciones se cotizan por separado.</p>
+    </div>
 
 
 
@@ -610,7 +602,7 @@
               <div class="portfolio-features-tags">
                 <span class="p-tag">🛒 Carrito a WhatsApp</span>
                 <span class="p-tag">🔐 Panel Autogestionable</span>
-                <span class="p-tag">📊 Google Analytics 4</span>
+                <span class="p-tag">📊 Análisis de Clics</span>
                 <span class="p-tag">🌐 Dominio Propio (.com)</span>
                 <span class="p-tag">⚡ Carga Ultrarrápida</span>
                 <span class="p-tag">📐 Guía de Tallas</span>
@@ -628,137 +620,12 @@
             </div>
           </div>
 
-          <!-- PROYECTO 2: NOVA CLÍNIC & SERVICIOS (Plan Presencia Digital) -->
-          <div class="portfolio-card" data-category="presencia">
-            <!-- Browser Mockup Frame -->
-            <div class="browser-mockup">
-              <div class="browser-chrome">
-                <div class="browser-dots">
-                  <span class="b-dot b-dot-red"></span>
-                  <span class="b-dot b-dot-yellow"></span>
-                  <span class="b-dot b-dot-green"></span>
-                </div>
-                <div class="browser-address">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                  <span>https://novaclinic-salud.com</span>
-                </div>
-              </div>
 
-              <div class="browser-screen screen-presencia">
-                <div class="screen-preview-overlay">
-                  <div class="preview-brand-header">
-                    <span class="brand-logo-text" style="color: #6ee7b7;">Nova Clínic & Spa</span>
-                    <span class="live-pill" style="border-color: #6ee7b7; color: #6ee7b7;">✓ One-Page</span>
-                  </div>
-                  <div class="preview-hero-content">
-                    <span class="preview-subtitle" style="color: #a7f3d0;">CENTRO DE SALUD & ESTÉTICA</span>
-                    <h4 class="preview-title">Atención Médica Integral & Citas</h4>
-                    <p class="preview-text">Presentación de 6 especialidades, tarifas base, ubicación física y agenda directa.</p>
-                  </div>
-                  <div class="preview-interactive-bar">
-                    <span class="interactive-tag">📍 Google Maps GPS</span>
-                    <span class="interactive-tag">🕒 Horarios & Citas</span>
-                    <span class="interactive-tag">📱 Botón WhatsApp</span>
-                  </div>
-                </div>
-              </div>
-            </div>
 
-            <!-- Card Content Details -->
-            <div class="portfolio-info">
-              <div class="portfolio-plan-pill badge-presencia">Plan Presencia Digital</div>
-              <h3 class="portfolio-title">Nova Clínic — Presencia Digital de Alta Conversión</h3>
-              <p class="portfolio-desc">
-                Solución formato One-Page de navegación continua para profesionales, consultorios médicos, barberías o restaurantes. Organiza en una sola pantalla los servicios estelares, horarios, mapa GPS interactivo y botón permanente para captar clientes directo por WhatsApp sin mensualidades.
-              </p>
+  <!-- vista de otros proyectos -->
 
-              <div class="portfolio-features-tags">
-                <span class="p-tag">⚡ Carga en &lt; 1.2s</span>
-                <span class="p-tag">📍 Mapa Google Maps</span>
-                <span class="p-tag">🛡️ Cero Mensualidades</span>
-                <span class="p-tag">💬 Botón Flotante WhatsApp</span>
-                <span class="p-tag">⭐ 4-6 Servicios Clave</span>
-                <span class="p-tag">📱 100% Adaptable Móvil</span>
-              </div>
 
-              <div class="portfolio-card-actions">
-                <button class="btn btn-details" onclick="openPlanModal('presencia')">
-                  <span>Ver Desglose del Plan ▹</span>
-                </button>
-                <button class="btn btn-whatsapp-action" onclick="selectPlan('presencia')">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
-                  <span>Cotizar Presencia</span>
-                </button>
-              </div>
-            </div>
-          </div>
 
-          <!-- PROYECTO 3: URBAN TECH STORE (Plan Catálogo Pro) -->
-          <div class="portfolio-card" data-category="catalogo">
-            <!-- Browser Mockup Frame -->
-            <div class="browser-mockup">
-              <div class="browser-chrome">
-                <div class="browser-dots">
-                  <span class="b-dot b-dot-red"></span>
-                  <span class="b-dot b-dot-yellow"></span>
-                  <span class="b-dot b-dot-green"></span>
-                </div>
-                <div class="browser-address">
-                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
-                  <span>https://urbantech-store.shop</span>
-                </div>
-              </div>
-
-              <div class="browser-screen screen-catalogo">
-                <div class="screen-preview-overlay">
-                  <div class="preview-brand-header">
-                    <span class="brand-logo-text" style="color: #67e8f9;">Urban Tech & Gadgets</span>
-                    <span class="live-pill" style="border-color: #67e8f9; color: #67e8f9;">🛍️ Catálogo Pro</span>
-                  </div>
-                  <div class="preview-hero-content">
-                    <span class="preview-subtitle" style="color: #a5f3fc;">CATÁLOGO MULTIPÁGINA</span>
-                    <h4 class="preview-title">Tecnología, Audio & Accesorios</h4>
-                    <p class="preview-text">Filtros por categoría, calculadora multimoneda con tasa del día y carrito desglosado.</p>
-                  </div>
-                  <div class="preview-interactive-bar">
-                    <span class="interactive-tag">🎛️ Filtros por Categoría</span>
-                    <span class="interactive-tag">💵 Tasa Doble (Bs / $)</span>
-                    <span class="interactive-tag">📦 Hasta 50 Productos</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <!-- Card Content Details -->
-            <div class="portfolio-info">
-              <div class="portfolio-plan-pill badge-catalogo">Plan Catálogo Pro</div>
-              <h3 class="portfolio-title">Urban Tech Store — Catálogo Interactivo con Carrito</h3>
-              <p class="portfolio-desc">
-                Ideal para tiendas de ropa, calzado, tecnología o repuestos. Estructura multipágina con navegación independiente, galería de hasta 50 productos con filtros rápidos, cálculo automático a la tasa del día y carrito inteligente que envía el pedido listo y formateado al WhatsApp del comercio.
-              </p>
-
-              <div class="portfolio-features-tags">
-                <span class="p-tag">📦 Hasta 50 Productos</span>
-                <span class="p-tag">🎛️ Filtros de Categorías</span>
-                <span class="p-tag">💵 Calculadora Multimoneda</span>
-                <span class="p-tag">🛒 Carrito a WhatsApp</span>
-                <span class="p-tag">📑 Navegación Multipágina</span>
-                <span class="p-tag">🖼️ Portada Hero Promocional</span>
-              </div>
-
-              <div class="portfolio-card-actions">
-                <button class="btn btn-details" onclick="openPlanModal('catalogo')">
-                  <span>Ver Desglose del Plan ▹</span>
-                </button>
-                <button class="btn btn-whatsapp-action" onclick="selectPlan('catalogo')">
-                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
-                  <span>Cotizar Catálogo</span>
-                </button>
-              </div>
-            </div>
-          </div>
-
-        </div>
 
         <!-- Banner de personalización y llamada a la acción -->
         <div class="portfolio-custom-banner">
@@ -794,7 +661,7 @@
 
         <div class="faq-accordion">
           <!-- Item 1 -->
-          <div class="faq-item active">
+          <div class="faq-item">
             <button class="faq-question">
               <span>¿Realmente no tendré que pagar mensualidades obligatorias?</span>
               <span class="faq-chevron">▾</span>
@@ -847,6 +714,25 @@
               Trabajamos con un anticipo inicial del 50% para dar comienzo al diseño y desarrollo de tu proyecto, y el 50% restante contra entrega y satisfacción una vez que la página web esté completamente operativa y probada.
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="payment-section" aria-labelledby="paymentTitle">
+      <div class="container">
+        <div class="payment-panel">
+          <div class="payment-heading">
+            <div class="badge badge-purple section-tag">Pago Flexible</div>
+            <h2 id="paymentTitle">Métodos de Pago Disponibles</h2>
+            <p>Selecciona la opción que te resulte más cómoda al coordinar tu proyecto.</p>
+          </div>
+          <ul class="payment-methods" aria-label="Métodos de pago">
+            <li>Binance</li>
+            <li>PayPal</li>
+            <li>Kontigo</li>
+            <li>Pago Móvil</li>
+            <li>Zinli</li>
+          </ul>
         </div>
       </div>
     </section>

@@ -289,11 +289,15 @@ function setMaintPeriod(period) {
   if (period === 'annual') {
     if (btnAnnual) btnAnnual.classList.add('active');
     if (btnMonthly) btnMonthly.classList.remove('active');
+    if (btnAnnual) btnAnnual.setAttribute('aria-pressed', 'true');
+    if (btnMonthly) btnMonthly.setAttribute('aria-pressed', 'false');
     document.querySelectorAll('.maint-price-monthly').forEach(el => el.style.display = 'none');
     document.querySelectorAll('.maint-price-annual').forEach(el => el.style.display = 'block');
   } else {
     if (btnMonthly) btnMonthly.classList.add('active');
     if (btnAnnual) btnAnnual.classList.remove('active');
+    if (btnMonthly) btnMonthly.setAttribute('aria-pressed', 'true');
+    if (btnAnnual) btnAnnual.setAttribute('aria-pressed', 'false');
     document.querySelectorAll('.maint-price-monthly').forEach(el => el.style.display = 'block');
     document.querySelectorAll('.maint-price-annual').forEach(el => el.style.display = 'none');
   }
