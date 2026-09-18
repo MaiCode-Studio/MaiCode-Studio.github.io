@@ -8,15 +8,25 @@
   <meta name="theme-color" content="#06030d">
   
   <title>MaiCode Studio</title>
-   <link rel="icon" href="logo.png" type="image/png">
+   <link rel="icon" href="img/logo.png" type="image/png">
 
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600;700&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
-  <!-- Estilos Principales -->
+  <!-- Estilos Principales google analisis -->
   <link rel="stylesheet" href="style.css">
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-2R10S2FS64"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-2R10S2FS64');
+  </script>
+
 </head>
 <body>
 
@@ -25,8 +35,8 @@
   <div class="grid-overlay"></div>
 
   <!-- ==========================================
-       HEADER & BARRA DE NAVEGACIÓN
-       ========================================== -->
+      HEADER & BARRA DE NAVEGACIÓN
+      ========================================== -->
   <header class="site-header">
     <div class="container nav-container">
         <span class="logo-code">MaiCode Studio</span>
@@ -53,8 +63,8 @@
 
   <main>
     <!-- ==========================================
-         HERO SECTION
-         ========================================== -->
+        HERO SECTION
+        ========================================== -->
     <section class="hero-section">
       <div class="container hero-grid">
         <div class="hero-content">
@@ -175,8 +185,8 @@
     </section>
 
     <!-- ==========================================
-         ESPECIFICACIONES TÉCNICAS Y BENEFICIOS (Imagen 2)
-         ========================================== -->
+        ESPECIFICACIONES TÉCNICAS Y BENEFICIOS (Imagen 2)
+        ========================================== -->
     <section class="specs-section" id="beneficios">
       <div class="container">
         <div class="section-header">
@@ -236,8 +246,8 @@
     </section>
 
     <!-- ==========================================
-         PLANES PRINCIPALES DE DESARROLLO (Imágenes 2, 3, 4 y 5)
-         ========================================== -->
+        PLANES PRINCIPALES DE DESARROLLO (Imágenes 2, 3, 4 y 5)
+        ========================================== -->
     <section class="pricing-section" id="planes">
       <div class="container">
         <div class="section-header">
@@ -544,12 +554,9 @@
         <!-- Grid de Proyectos -->
         <div class="portfolio-grid">
 
+
           <!-- PROYECTO 1: MAI SHOES (Tienda Autogestionable) - ENLACE REAL -->
           <div class="portfolio-card featured-project" data-category="tienda">
-            <div class="portfolio-card-badge-top">
-              <span class="pulse-dot"></span>
-              <span>Demostración en Vivo • 100% Operativo</span>
-            </div>
 
             <!-- Browser Mockup Frame -->
             <div class="browser-mockup">
@@ -591,6 +598,24 @@
               </div>
             </div>
 
+            <!-- GALERIA MAI SHOES
+                Para cambiar las fotos, reemplaza los archivos dentro de
+                assets/portfolio/mai-shoes/ conservando estos nombres. -->
+            <div class="portfolio-gallery" aria-label="Galería de Mai Shoes">
+              <figure class="portfolio-gallery-item">
+                <img src="assets/portfolio/mai-shoes/portada.jpg" alt="Portada de la tienda online Mai Shoes" onerror="this.parentElement.classList.add('is-missing'); this.remove()">
+                <figcaption>Portada de la tienda</figcaption>
+              </figure>
+              <figure class="portfolio-gallery-item">
+                <img src="assets/portfolio/mai-shoes/catalogo.jpg" alt="Catálogo de productos de Mai Shoes" onerror="this.parentElement.classList.add('is-missing'); this.remove()">
+                <figcaption>Catálogo de productos</figcaption>
+              </figure>
+              <figure class="portfolio-gallery-item">
+                <img src="assets/portfolio/mai-shoes/whatsapp.jpg" alt="Pedido de Mai Shoes recibido por WhatsApp" onerror="this.parentElement.classList.add('is-missing'); this.remove()">
+                <figcaption>Pedido por WhatsApp</figcaption>
+              </figure>
+            </div>
+
             <!-- Card Content Details -->
             <div class="portfolio-info">
               <div class="portfolio-plan-pill badge-tienda">Plan Tienda Autogestionable</div>
@@ -620,6 +645,96 @@
             </div>
           </div>
 
+
+          <!-- PROYECTO 2: BRISA TRAVEL  (Presencia Digital) - ENLACE REAL -->
+          <div class="portfolio-card featured-project" data-category="tienda">
+
+            <!-- Browser Mockup Frame -->
+            <div class="browser-mockup">
+              <div class="browser-chrome">
+                <div class="browser-dots">
+                  <span class="b-dot b-dot-red"></span>
+                  <span class="b-dot b-dot-yellow"></span>
+                  <span class="b-dot b-dot-green"></span>
+                </div>
+                <div class="browser-address">
+                  <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+                  <span>https://brisa-travel-web.vercel.app/</span>
+                </div>
+                <a href="https://brisa-travel-web.vercel.app/" target="_blank" rel="noopener noreferrer" class="browser-ext-link" title="Abrir en ventana nueva">
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                </a>
+              </div>
+
+              <div class="browser-screen screen-shoes">
+                <div class="screen-preview-overlay">
+                  <div class="preview-brand-header">
+                    <span class="brand-logo-text">Brisa Travel</span>
+                    <span class="live-pill">⚡ En Vivo</span>
+                  </div>
+                  <div class="preview-hero-content">
+                    <span class="preview-subtitle">AGENCIA DE VIAJES</span>
+                    <h4 class="preview-title">Brisa Travel</h4>
+                    <p class="preview-text">Explora destinos, reserva viajes y gestiona tus itinerarios de manera sencilla.</p>
+                  </div>
+                  <div class="preview-interactive-bar">
+                    <span class="interactive-tag">📍 Google Maps GPS</span>
+                    <span class="interactive-tag">🕒 Horarios & Citas</span>
+                    <span class="interactive-tag">📱 Botón WhatsApp</span>
+                  </div>
+                  <a href="https://brisa-travel-web.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-preview-visit">
+                    <span>Explorar Sitio en Vivo ↗</span>
+                  </a>
+                </div>
+              </div>
+            </div>
+
+            <!-- GALERIA BRISA TRAVEL
+                Para cambiar las fotos, reemplaza los archivos dentro de
+                assets/portfolio/brisa-travel/ conservando estos nombres. -->
+            <div class="portfolio-gallery" aria-label="Galería de Brisa Travel">
+              <figure class="portfolio-gallery-item">
+                <img src="assets/portfolio/brisa-travel/inicio.png" alt="Portada del sitio web Brisa Travel" onerror="this.parentElement.classList.add('is-missing'); this.remove()">
+                <figcaption>Portada del sitio</figcaption>
+              </figure>
+              <figure class="portfolio-gallery-item">
+                <img src="assets/portfolio/brisa-travel/movil.jpg" alt="Versión móvil de Brisa Travel" onerror="this.parentElement.classList.add('is-missing'); this.remove()">
+                <figcaption>Vista móvil</figcaption>
+              </figure>
+              <figure class="portfolio-gallery-item">
+                <img src="assets/portfolio/brisa-travel/whatsapp.jpg" alt="Consulta de Brisa Travel recibida por WhatsApp" onerror="this.parentElement.classList.add('is-missing'); this.remove()">
+                <figcaption>Consulta por WhatsApp</figcaption>
+              </figure>
+            </div>
+
+          <!-- Card Content Details -->
+            <div class="portfolio-info">
+              <div class="portfolio-plan-pill badge-presencia">Plan Presencia Digital</div>
+              <h3 class="portfolio-title">Brisa Travel — Presencia Digital de Alta Conversión</h3>
+              <p class="portfolio-desc">
+                Solución formato One-Page de navegación continua para profesionales, consultorios médicos, barberías o restaurantes. Organiza en una sola pantalla los servicios estelares, horarios, mapa GPS interactivo y botón permanente para captar clientes directo por WhatsApp sin mensualidades.
+              </p>
+
+              <div class="portfolio-features-tags">
+                <span class="p-tag">⚡ Carga en &lt; 1.2s</span>
+                <span class="p-tag">📍 Mapa Google Maps</span>
+                <span class="p-tag">🛡️ Cero Mensualidades</span>
+                <span class="p-tag">💬 Botón Flotante WhatsApp</span>
+                <span class="p-tag">⭐ 4-6 Servicios Clave</span>
+                <span class="p-tag">📱 100% Adaptable Móvil</span>
+              </div>
+
+              <div class="portfolio-card-actions">
+                <button class="btn btn-details" onclick="openPlanModal('presencia')">
+                  <span>Ver Desglose del Plan ▹</span>
+                </button>
+                <button class="btn btn-whatsapp-action" onclick="selectPlan('presencia')">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38c1.45.79 3.08 1.21 4.74 1.21 5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.816 9.816 0 0 0 12.04 2z"/></svg>
+                  <span>Cotizar Presencia</span>
+                </button>
+              </div>
+            </div>
+          </div>
 
 
   <!-- vista de otros proyectos -->
@@ -783,13 +898,13 @@
             <li>
               <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="contact-link-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
-                <!--<span>Instagram: @maicodestudio</span>-->
+                <span>Instagram: @maicode_studio</span>
               </a>
             </li>
             <li>
               <a href="mailto:maivetpereira@gmail.com" class="contact-link-item">
                 <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
-                <span>Correo: maivetpereira@gmail.com</span>
+                <span>Correo: pereiramaivet@gmail.com</span>
               </a>
             </li>
           </ul>
@@ -806,8 +921,8 @@
   </footer>
 
   <!-- ==========================================
-       BOTÓN FLOTANTE DE WHATSAPP CON TOOLTIP
-       ========================================== -->
+      BOTÓN FLOTANTE DE WHATSAPP CON TOOLTIP
+      ========================================== -->
   <div class="whatsapp-float-container">
     <div class="whatsapp-float-tooltip">¿Tienes dudas? ¡Escríbenos por WhatsApp!</div>
     <a href="javascript:void(0)" class="whatsapp-float-btn" onclick="selectPlan('custom')" aria-label="Contactar por WhatsApp">
@@ -816,8 +931,8 @@
   </div>
 
   <!-- ==========================================
-       MODAL DE DETALLES EXTENDIDOS
-       ========================================== -->
+      MODAL DE DETALLES EXTENDIDOS
+      ========================================== -->
   <div class="modal-overlay" id="detailsModal">
     <div class="modal-window">
       <div class="modal-header">
