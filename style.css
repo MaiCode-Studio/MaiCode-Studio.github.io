@@ -625,9 +625,11 @@ h1, h2, h3, h4 {
 /* Pricing Grid */
 .pricing-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 2rem;
   align-items: stretch;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .plan-card {
@@ -652,11 +654,10 @@ h1, h2, h3, h4 {
   background: linear-gradient(180deg, rgba(46, 20, 92, 0.9) 0%, rgba(20, 8, 44, 0.98) 100%);
   border: 1.5px solid var(--purple-light);
   box-shadow: 0 0 35px rgba(168, 85, 247, 0.3);
-  transform: scale(1.03);
 }
 
 .plan-card.featured:hover {
-  transform: scale(1.03) translateY(-8px);
+  transform: translateY(-8px);
   box-shadow: 0 0 50px rgba(168, 85, 247, 0.5);
 }
 
@@ -1416,9 +1417,11 @@ h1, h2, h3, h4 {
 
 .maintenance-cards {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
+  grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 1.25rem;
   align-items: stretch;
+  max-width: 960px;
+  margin: 0 auto;
 }
 
 .maintenance-card {

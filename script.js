@@ -175,7 +175,7 @@ function selectPlan(planType) {
       message = `¡Hola ${CONFIG.agencyName}! 👋 Estoy interesado en contratar el *Plan Presencia Digital ($80)* para mi negocio. Me gustaría coordinar los detalles para comenzar.`;
       break;
     case 'catalogo':
-      message = `¡Hola ${CONFIG.agencyName}! 👋 Quiero contratar el *Plan Catálogo Pro ($120)* con catálogo interactivo y pedidos a WhatsApp. ¿Podemos iniciar mi proyecto?`;
+      message = `¡Hola ${CONFIG.agencyName}! 👋 Quiero contratar el *Plan Catálogo Pro ($150)* con catálogo interactivo y pedidos a WhatsApp. ¿Podemos iniciar mi proyecto?`;
       break;
     case 'tienda':
       message = `¡Hola ${CONFIG.agencyName}! 👋 Deseo adquirir el *Plan Tienda Autogestionable ($210)* con panel privado de administración y dominio incluido. ¿Cómo procedemos?`;
