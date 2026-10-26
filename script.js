@@ -20,7 +20,7 @@ const CONFIG = {
 const PLAN_DETAILS = {
   presencia: {
     name: 'Plan Presencia Digital',
-    price: '$80',
+    price: '€80',
     frequency: 'Pago Único',
     intro: 'Este plan está diseñado para profesionales, consultores, médicos, restaurantes, barberías, talleres o cualquier negocio local que no requiera un catálogo extenso, sino una página web moderna, rápida y confiable que transmita seguridad, posicione su marca y convierta visitantes en clientes directos por WhatsApp.',
     sections: [
@@ -66,7 +66,7 @@ const PLAN_DETAILS = {
 
   catalogo: {
     name: 'Plan Catálogo Pro',
-    price: '$120',
+    price: '€120',
     frequency: 'Pago Único',
     intro: 'Ideal para tiendas de ropa, calzado, repuestos, cosméticos, tecnología o negocios con una variedad constante de productos que necesitan organizar su inventario y simplificar el proceso de compra de sus clientes.',
     sections: [
@@ -109,7 +109,7 @@ const PLAN_DETAILS = {
 
   tienda: {
     name: 'Plan Tienda Autogestionable',
-    price: '$210',
+    price: '€210',
     frequency: 'Pago Único',
     intro: 'Este plan está diseñado para marcas consolidadas, comercios con alto flujo de ventas o negocios que necesitan autonomía absoluta para actualizar precios, la tasa del día, productos y disponibilidad al instante, además de medir el tráfico real de su página para tomar decisiones inteligentes de negocio.',
     sections: [
@@ -172,22 +172,22 @@ function selectPlan(planType) {
   let message = '';
   switch (planType) {
     case 'presencia':
-      message = `¡Hola ${CONFIG.agencyName}! 👋 Estoy interesado en contratar el *Plan Presencia Digital ($80)* para mi negocio. Me gustaría coordinar los detalles para comenzar.`;
+      message = `¡Hola ${CONFIG.agencyName}! 👋 Estoy interesado en contratar el *Plan Presencia Digital (€80)* para mi negocio. Me gustaría coordinar los detalles para comenzar.`;
       break;
     case 'catalogo':
-      message = `¡Hola ${CONFIG.agencyName}! 👋 Quiero contratar el *Plan Catálogo Pro ($150)* con catálogo interactivo y pedidos a WhatsApp. ¿Podemos iniciar mi proyecto?`;
+      message = `¡Hola ${CONFIG.agencyName}! 👋 Quiero contratar el *Plan Catálogo Pro (€150)* con catálogo interactivo y pedidos a WhatsApp. ¿Podemos iniciar mi proyecto?`;
       break;
     case 'tienda':
-      message = `¡Hola ${CONFIG.agencyName}! 👋 Deseo adquirir el *Plan Tienda Autogestionable ($210)* con panel privado de administración y dominio incluido. ¿Cómo procedemos?`;
+      message = `¡Hola ${CONFIG.agencyName}! 👋 Deseo adquirir el *Plan Tienda Autogestionable (€210)* con panel privado de administración y dominio incluido. ¿Cómo procedemos?`;
       break;
     case 'maint-presencia':
-      message = `¡Hola ${CONFIG.agencyName}! Me interesa el servicio de *Mantenimiento: Plan Presencia Digital ($12)* para mantener mi sitio al día.`;
+      message = `¡Hola ${CONFIG.agencyName}! Me interesa el servicio de *Mantenimiento: Plan Presencia Digital (€12)* para mantener mi sitio al día.`;
       break;
     case 'maint-catalogo':
-      message = `¡Hola ${CONFIG.agencyName}! Deseo contratar el *Mantenimiento: Plan Catálogo Pro ($20)* para actualización de productos y promociones.`;
+      message = `¡Hola ${CONFIG.agencyName}! Deseo contratar el *Mantenimiento: Plan Catálogo Pro (€20)* para actualización de productos y promociones.`;
       break;
     case 'maint-tienda':
-      message = `¡Hola ${CONFIG.agencyName}! Me interesa el servicio de *Mantenimiento: Tienda Autogestionable ($35)* para soporte integral de mi panel y analítica.`;
+      message = `¡Hola ${CONFIG.agencyName}! Me interesa el servicio de *Mantenimiento: Tienda Autogestionable (€35)* para soporte integral de mi panel y analítica.`;
       break;
     case 'custom':
     default:
@@ -307,18 +307,18 @@ function selectMaintPlan(planType) {
   const plans = {
     presencia: {
       name: 'Mantenimiento Presencia Digital',
-      monthly: '$12/mes',
-      annual: '$120/año (Promoción 2 Meses Gratis)'
+      monthly: '€12/mes',
+      annual: '€120/año (Promoción 2 Meses Gratis)'
     },
     catalogo: {
       name: 'Mantenimiento Catálogo Pro',
-      monthly: '$20/mes',
-      annual: '$190/año (Promoción Anual con Ahorro de $50)'
+      monthly: '€20/mes',
+      annual: '€190/año (Promoción Anual con Ahorro de €50)'
     },
     tienda: {
       name: 'Mantenimiento Tienda Autogestionable',
-      monthly: '$35/mes',
-      annual: '$330/año (Promoción Anual VIP con Ahorro de $90)'
+      monthly: '€35/mes',
+      annual: '€330/año (Promoción Anual VIP con Ahorro de €90)'
     }
   };
 
